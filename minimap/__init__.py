@@ -38,12 +38,12 @@ def main():
         args.output = [os.path.splitext(os.path.basename(filename))[0] + '.png' for filename in args.files]
 
     if len(args.output) > 0 and len(args.files) != len(args.output):
-        print(f'{sys.argv[0]}: error: output must have the same number of arguments as input')
+        print('{sys.argv[0]}: error: output must have the same number of arguments as input')
         sys.exit(1)
 
     for filename, output in zip(args.files, args.output):
         if not args.overwrite and os.path.exists(output):
-            print(f'{sys.argv[0]}: error: "{output}" already exists')
+            print('{sys.argv[0]}: error: "{output}" already exists')
             sys.exit(1)
 
         with open(filename, 'r') as f:
